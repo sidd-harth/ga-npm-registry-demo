@@ -1,11 +1,8 @@
 name: Solar System Workflow
 
 on: 
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-      - 'feature/*'
+  release:
+    types: [published]
     
 jobs:
     unit-testing:
@@ -19,9 +16,9 @@ jobs:
         - uses: actions/setup-node@v4
           with:
             node-version: '20.x'
-            registry-url: 'https://npm.pkg.github.com'
+            registry-url: 'https://npm.pkg.github.com/'
             # Defaults to the user or organization that owns the workflow file
-            scope: '@cd-org'
+            #scope: '@cd-org'
         - run: |
               ls -ltra
               cat .npmrc
