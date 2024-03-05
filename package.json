@@ -1,6 +1,6 @@
 {
   "name": "@cd-org/3solar-system-package",
-  "version": "6.7.7",
+  "version": "6.7.8",
   "author": "Siddharth Barahalikar <barahalikar.siddharth@gmail.com>",
   "homepage": "https://www.linkedin.com/in/barahalikar-siddharth/",
   "license": "MIT",
@@ -12,10 +12,6 @@
   "nyc": {
     "check-coverage": true,
     "lines": 90
-  },
-  "repository": {
-    "type": "git", 
-    "url": "https://github.dev/cd-org/3solar-system-package.git"
   },
   "dependencies": {
     "cors": "^2.8.5",
