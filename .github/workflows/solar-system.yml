@@ -1,7 +1,6 @@
 name: Publish Package to GitHub NPM Registry
 
 on: 
-  push:
   release: 
     types: published
     
