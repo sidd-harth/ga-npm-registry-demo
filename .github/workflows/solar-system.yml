@@ -25,6 +25,7 @@ jobs:
             scope: '@cd-org'
         - run: |
               ls -ltra
+              echo '//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN  }}' > ${{ github.workspace }}/.npmrc
               cat .npmrc
         - run: npm ci
         - run: |
