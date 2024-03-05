@@ -26,6 +26,8 @@ jobs:
               ls -ltra
               cat $NPM_CONFIG_USERCONFIG
         - run: npm ci
-        - run: npm publish
+        - run: |
+            echo '//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN  }}' > ${{ github.workspace }}/.npmrc
+            npm publish
           env:
             NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
