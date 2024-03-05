@@ -27,7 +27,8 @@ jobs:
               cat $NPM_CONFIG_USERCONFIG
         - run: npm ci
         - run: |
-            echo '//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN  }}' > ${{ github.workspace }}/.npmrc
+            echo '@cd-org:registry=https://npm.pkg.github.com/' > ${{ github.workspace }}/.npmrc
+            cat .npmrc
             npm publish
           env:
             NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
