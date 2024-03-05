@@ -20,7 +20,7 @@ jobs:
             registry-url: 'https://npm.pkg.github.com/' # Setup .npmrc file to publish to GitHub Packages
 
         - name: Read .npmrc file contents
-          run: find home -name .npmrc -exec cat {} \;
+          run: find /home -name .npmrc -exec cat {} \;
         
         - name: Install Dependencies
           run: npm install
