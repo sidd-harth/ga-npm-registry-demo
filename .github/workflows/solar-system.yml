@@ -1,27 +1,31 @@
-name: Solar System Workflow
+name: Publish Package to GitHub NPM Registry
 
 on: 
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-      - 'feature/*'
+  release: 
+    types: published
     
 jobs:
     unit-testing:
       runs-on: ubuntu-latest
       permissions:
-        contents: read
         packages: write
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       steps:
-        - uses: actions/checkout@v4
-        - uses: actions/setup-node@v4
+        - name: Checkout Repository
+          uses: actions/checkout@v4
+
+        - name: Setup NodeJS Version - 20.x
+          uses: actions/setup-node@v4
           with:
             node-version: '20.x'
-            registry-url: 'https://npm.pkg.github.com/'
-        - run: ls -ltra && npm ci
-        - run: npm publish            
+            registry-url: 'https://npm.pkg.github.com/' # Setup .npmrc file to publish to GitHub Packages
+
+        - name: Read .npmrc file contents
+          run: find home -name .npmrc -exec cat {} \;
+        
+        - name: Install Dependencies
+          run: npm install
+        
+        - name: Publish to GitHub Packages
+          run: npm publish            
           env:
             NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
