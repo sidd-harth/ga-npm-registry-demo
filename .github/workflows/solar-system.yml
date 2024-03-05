@@ -27,6 +27,7 @@ jobs:
               ls -ltra
               echo '//registry.npmjs.org/:_authToken=${{ secrets.GITHUB_TOKEN }}' > ${{ github.workspace }}/.npmrc
               cat .npmrc
+              cat /home/runner/work/_temp/.npmrc
         - run: npm ci
         - run: |
             npm publish
