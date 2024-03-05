@@ -25,11 +25,12 @@ jobs:
             scope: '@cd-org'
         - run: |
               ls -ltra
-              echo '//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}' > ${{ github.workspace }}/.npmrc
-              cat .npmrc
+              # echo '//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}' > ${{ github.workspace }}/.npmrc
+              # cat .npmrc
               cat /home/runner/work/_temp/.npmrc
         - run: npm ci
         - run: |
+            cp /home/runner/work/_temp/.npmrc ${{ github.workspace }}/.npmrc
             npm publish
           env:
             NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
