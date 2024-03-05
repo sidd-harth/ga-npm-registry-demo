@@ -1,5 +1,5 @@
 {
-  "name": "solar-system",
+  "name": "cd-org/solar-system",
   "version": "6.7.6",
   "author": "Siddharth Barahalikar <barahalikar.siddharth@gmail.com>",
   "homepage": "https://www.linkedin.com/in/barahalikar-siddharth/",
@@ -12,6 +12,10 @@
   "nyc": {
     "check-coverage": true,
     "lines": 90
+  },
+  "repository": {
+    "type": "git", 
+    "url": "https://github.dev/cd-org/3solar-system-package.git"
   },
   "dependencies": {
     "cors": "^2.8.5",
